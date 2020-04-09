@@ -176,6 +176,7 @@ func (ftp *Ftp) Upload(localFilePath string, remoteFilePath string) error {
 
 	// open local file
 	localFile, err := os.Open(localFilePath)
+	defer localFile.close()
 	if err != nil {
 		return err
 	}
